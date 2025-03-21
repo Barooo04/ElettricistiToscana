@@ -2,9 +2,10 @@ import React from 'react';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShieldAlt, faStar, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-
+    const navigate = useNavigate();
     const moveTo = (section) => {
         const sectionElement = document.getElementById(section);
         sectionElement.scrollIntoView({ behavior: 'smooth' });
@@ -19,7 +20,7 @@ const Home = () => {
                     <p className="navbar-item" onClick={() => moveTo('come-funziona-section')}>Come funziona</p>
                     <p className="navbar-item" onClick={() => moveTo('perche-noi-section')}>Perché noi?</p>
                     <p className="navbar-item" onClick={() => moveTo('footer')}>Contatti</p>
-                    <p className="area-venditori-button">Area Professionisti</p>
+                    <p className="area-venditori-button" onClick={() => navigate('/login')}>Area Professionisti</p>
                 </div>
             </div>
 
