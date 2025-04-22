@@ -49,19 +49,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     padding: 5px 20px;
     animation: FromTopToBottom 1.5s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.sticky {
     background: #B30009;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo {
-    width: 100px;
-    height: 100px;
-    background: #b6b6b6;
+    width: 200px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .navbar-items {
@@ -99,7 +112,7 @@
 
 .hero-section {
     width: 100%;
-    height: 55vh;
+    height: 65vh;
     position: relative;
     display: flex;
     align-items: flex-end;
@@ -620,6 +633,14 @@
     width: 150px;
     height: 150px;
     background-color: #808080;
+}
+
+.footer-logo {
+    width: 200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-professionista-button {

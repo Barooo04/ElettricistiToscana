@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faStar, faCheckCircle, faUsers, faClock, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -7,11 +7,13 @@ import video from '../Media/video.mp4';
 import foto1 from '../Media/foto1.jpg';
 import foto2 from '../Media/foto2.jpg';
 import foto3 from '../Media/foto3.jpg';
+import logo from '../Media/logoScritto.png';
 
 const Home = () => {
     const navigate = useNavigate();
     const [showPopup, setShowPopup] = useState(false);
     const [expandedFaq, setExpandedFaq] = useState(null);
+    const [isNavbarSticky, setIsNavbarSticky] = useState(false);
     const [formData, setFormData] = useState({
         indirizzo: '',
         tipoIntervento: '',
@@ -19,6 +21,19 @@ const Home = () => {
         urgenza: '',
         orarioChiamata: ''
     });
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsNavbarSticky(true);
+            } else {
+                setIsNavbarSticky(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const faqData = [
         {
@@ -59,8 +74,9 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <div className="navbar">
+            <div className={`navbar ${isNavbarSticky ? 'sticky' : ''}`}>
                 <div className="navbar-logo">
+                    <img src={logo} alt="Elettricisti Toscana Logo" className="logo-img" />
                 </div>
                 <div className="navbar-items">
                     <p className="navbar-item" onClick={() => moveTo('chi-siamo')}>Chi Siamo</p>
@@ -229,7 +245,7 @@ const Home = () => {
             <div className="footer" id="footer">
                 <div className="footer-main">
                     <div className="footer-logo">
-                        <div className="placeholder-logo"></div>
+                        <img src={logo} alt="Elettricisti Toscana Logo" className="logo-img" />
                     </div>
                     <div className="footer-professionista-container">
                         <h3>Area Professionisti</h3>
