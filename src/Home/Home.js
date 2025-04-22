@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faStar, faCheckCircle, faUsers, faClock, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 import video from '../Media/video.mp4';
 import foto1 from '../Media/foto1.jpg';
 import foto2 from '../Media/foto2.jpg';
 import foto3 from '../Media/foto3.jpg';
-import logo from '../Media/logoScritto.png';
+import logoEsteso from '../Media/logoEsteso.png';
 
 const Home = () => {
-    const navigate = useNavigate();
     const [showPopup, setShowPopup] = useState(false);
     const [expandedFaq, setExpandedFaq] = useState(null);
     const [isNavbarSticky, setIsNavbarSticky] = useState(false);
@@ -76,7 +74,7 @@ const Home = () => {
         <div className="home-container">
             <div className={`navbar ${isNavbarSticky ? 'sticky' : ''}`}>
                 <div className="navbar-logo">
-                    <img src={logo} alt="Elettricisti Toscana Logo" className="logo-img" />
+                    <img src={logoEsteso} alt="Elettricisti Toscana Logo" className="logo-img" />
                 </div>
                 <div className="navbar-items">
                     <p className="navbar-item" onClick={() => moveTo('chi-siamo')}>Chi Siamo</p>
@@ -245,7 +243,7 @@ const Home = () => {
             <div className="footer" id="footer">
                 <div className="footer-main">
                     <div className="footer-logo">
-                        <img src={logo} alt="Elettricisti Toscana Logo" className="logo-img" />
+                        <img src={logoEsteso} alt="Elettricisti Toscana Logo" className="logo-img" />
                     </div>
                     <div className="footer-professionista-container">
                         <h3>Area Professionisti</h3>

@@ -3,6 +3,7 @@ import './LoginSignup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import logoEsteso from '../Media/logoEsteso.png';
 
 const LoginSignup = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -20,6 +21,7 @@ const LoginSignup = () => {
 
             <div className={`login-signup-box ${isLogin ? '' : 'signup-mode'}`}>
                 <div className="colored-side">
+                    <img src={logoEsteso} alt="Elettricisti Toscana Logo" className="login-logo" />
                     <h2>{isLogin ? 'Bentornato' : 'Benvenuto'}</h2>
                     <p>{isLogin 
                         ? 'Accedi al tuo account per gestire i tuoi servizi' 
