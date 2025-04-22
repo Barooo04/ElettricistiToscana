@@ -22,24 +22,17 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 
 const ProfessionistiDashboard = () => {
-    const [activeSection, setActiveSection] = useState('daAccettare');
+    const [activeSection, setActiveSection] = useState('contatti');
     const [hoveredCard, setHoveredCard] = useState(null);
     const navigate = useNavigate();
 
     const menuItems = [
-        { id: 'daAccettare', icon: faUserClock, label: 'Contatti da accettare' },
-        { id: 'accettati', icon: faUserCheck, label: 'Contatti accettati' },
+        { id: 'contatti', icon: faUserCheck, label: 'Contatti' },
         { id: 'rimborsi', icon: faMoneyBill, label: 'Rimborsi' },
         { id: 'impostazioni', icon: faCog, label: 'Impostazioni' }
     ];
 
-    const contattiDaAccettare = [
-        { id: 1, nome: 'Mario', cognome: 'Rossi', tipo: 'Riparazione' },
-        { id: 2, nome: 'Giuseppe', cognome: 'Verdi', tipo: 'Installazione' },
-        // Aggiungere altri contatti come esempio
-    ];
-
-    const contattiAccettati = [
+    const contatti = [
         { 
             id: 1, 
             nome: 'Paolo', 
@@ -111,35 +104,10 @@ const ProfessionistiDashboard = () => {
 
     const renderContent = () => {
         switch(activeSection) {
-            case 'daAccettare':
+            case 'contatti':
                 return (
                     <div className="contacts-grid">
-                        {contattiDaAccettare.map(contatto => (
-                            <div key={contatto.id} className="contact-card">
-                                <div className="contact-icon">
-                                    <FontAwesomeIcon icon={faUser} />
-                                </div>
-                                <div className="contact-info">
-                                    <h3>{contatto.nome} {contatto.cognome.charAt(0)}.</h3>
-                                    <p>{contatto.tipo}</p>
-                                </div>
-                                <div 
-                                    className="lock-icon"
-                                    onMouseEnter={() => setHoveredCard(contatto.id)}
-                                    onMouseLeave={() => setHoveredCard(null)}
-                                >
-                                    <FontAwesomeIcon 
-                                        icon={hoveredCard === contatto.id ? faLockOpen : faLock} 
-                                    />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                );
-            case 'accettati':
-                return (
-                    <div className="contacts-grid">
-                        {contattiAccettati.map(contatto => (
+                        {contatti.map(contatto => (
                             <div key={contatto.id} className="contact-card">
                                 <div className="contact-icon">
                                     <FontAwesomeIcon icon={faUser} />
